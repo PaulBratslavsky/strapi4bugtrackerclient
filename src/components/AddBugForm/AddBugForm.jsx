@@ -239,7 +239,7 @@ export default function AddBugForm({ setIsVisible, user, projectID }) {
           </RowGrid>
 
           <Button fullWidth type="submit">
-            Add Project
+            Add Bug/Task
           </Button>
 
           <Box paddingTop={6}>
