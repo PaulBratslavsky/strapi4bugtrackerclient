@@ -1,22 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Box, Button } from "@strapi/design-system";
-import { TwoColsLayout } from "@strapi/design-system/Layout";
-import { Plus, ArrowLeft } from "@strapi/icons";
-import { FaBug } from "react-icons/fa";
+import { ArrowLeft } from "@strapi/icons";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { BaseHeaderLayout } from "@strapi/design-system/Layout";
 import { GET_ALL_ITEMS_BY_OWNER } from "../../apollo/queries";
-import AddBugForm from "../../components/AddBugForm/AddBugForm";
-import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
-
 import { UserContext } from "../../context/UserContext";
 import BugsTable from "../BugsTable/BugsTable";
-import Modal from "../Modal/Modal";
-import ProjectDetails from "../ProjectDetails/ProjectDetails";
 
 export default function Project() {
-  const [isVisible, setIsVisible] = useState(false);
   const { projectID } = useParams();
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
