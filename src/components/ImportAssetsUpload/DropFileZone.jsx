@@ -80,6 +80,7 @@ export default function DropFileZone({ file, setFile, hasError }) {
   };
 
   const handleFileChange = ({ target: { files } }) => {
+    console.log(files);
     const file = files[0];
     validateFile(file);
     setFile(file);
@@ -96,6 +97,7 @@ export default function DropFileZone({ file, setFile, hasError }) {
 
     const { files } = event.dataTransfer;
     validateFile(files[0]);
+    setFile(files[0]);
   };
 
   return (
