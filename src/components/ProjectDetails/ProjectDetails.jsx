@@ -67,13 +67,12 @@ export default function ProjectDetails({ projectID }) {
   const { attributes } = project;
 
   const imageUrl = attributes.featuredImage.data.attributes.url;
-  const fullUrl = process.env.REACT_APP_URL + imageUrl;
 
   const { projectName, projectDescription, gitUrl, siteUrl } = attributes;
 
   return (
     <Box padding={4}>
-      <Image src={fullUrl} alt={attributes.projectName} />
+      <Image src={imageUrl} alt={attributes.projectName} />
       <DetailsBox padding={7}>
         {projectName && <h2>{projectName}</h2>}
         {projectDescription && <p>{projectDescription}</p>}

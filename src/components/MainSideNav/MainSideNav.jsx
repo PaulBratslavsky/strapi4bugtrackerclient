@@ -41,7 +41,7 @@ export default function MainSideNav() {
 
   if (loading) return <Loader>Loading content...</Loader>;
   if (error) return <p>Error: {error.message}</p>;
-
+  
   const { firstName, lastName, position, avatarPhoto } = data.usersPermissionsUser.data.attributes
   const { url } = avatarPhoto.data.attributes;
 
@@ -50,7 +50,7 @@ export default function MainSideNav() {
       <MainNav>
         <Box padding={2}>
           <Flex justifyContent="space-between">
-            <AvatarImage size={50} src={process.env.REACT_APP_URL + url} alt={`${firstName} ${lastName}`} />
+            <AvatarImage size={50} src={url} alt={`${firstName} ${lastName}`} />
             <Box padding={3}>
               <Typography variant="epsilon" textColor="neutral600">
                {`${firstName} ${lastName}`}

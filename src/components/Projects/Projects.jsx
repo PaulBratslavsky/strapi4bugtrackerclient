@@ -56,7 +56,7 @@ export default function Projects() {
     tableRow.name = project.attributes.projectName;
     tableRow.description = project.attributes.projectDescription;
     tableRow.createdBy = `${firstName} ${lastName}`;
-    tableRow.avatar = process.env.REACT_APP_URL + avatarUrl;
+    tableRow.avatar = avatarUrl;
     tableRow.task = project.attributes.projectItems.data.length;
     tableRow.createdAt = project.attributes.createdAt;
 
