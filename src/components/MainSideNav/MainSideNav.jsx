@@ -46,7 +46,7 @@ export default function MainSideNav() {
   const { url } = avatarPhoto.data.attributes;
 
   return (
-    <Box background="neutral100" style={{ height: "100vh" }}>
+    <Box style={{ height: "100vh" }}>
       <MainNav>
         <Box padding={2}>
           <Flex justifyContent="space-between">
