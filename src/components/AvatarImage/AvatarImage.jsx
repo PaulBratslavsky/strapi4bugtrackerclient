@@ -15,11 +15,11 @@ const AvatarContainer = styled.div`
 `;
 
 export default function AvatarImage({ size = 65, src, alt = "Avatar placement image." }) {
-  if (!src) return null;
+  const placementImage = `${process.env.REACT_APP_URL}/uploads/avataplaceholder_95b6fdf10d.png`;
   return (
     <Box>
       <AvatarContainer size={size}>
-        <img src={src} alt={alt} />
+        <img src={src || placementImage} alt={alt} />
       </AvatarContainer>
     </Box>
   );
