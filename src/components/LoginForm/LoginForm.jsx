@@ -109,6 +109,7 @@ export default function LoginForm() {
             error={formError.identifier ? "This value is required." : ""}
             value={formData.identifier}
             onChange={handleChange}
+            type="text"
             label={"Email"}
             placeholder={"Enter your email"}
             name="identifier"
@@ -119,6 +120,7 @@ export default function LoginForm() {
             error={formError.password ? "This value is required." : ""}
             value={formData.password}
             onChange={handleChange}
+            type="password"
             label={"Password"}
             placeholder={"Enter your password"}
             name="password"

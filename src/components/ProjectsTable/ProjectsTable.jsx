@@ -22,7 +22,7 @@ export default function ProjectsTable({ tableData = [], tableHeader = [] }) {
   const navigate = useNavigate();
 
   return (
-    <Box padding={3} background="neutral100">
+    <Box>
       <Table className="test"colCount={COL_COUNT} rowCount={ROW_COUNT}>
         <Thead>
           <Tr>

@@ -64,7 +64,7 @@ export default function Projects() {
   });
 
   return (
-    <div>
+    <Box>
       <BaseHeaderLayout
         primaryAction={
           <Button onClick={() => setIsVisible(true)} startIcon={<Plus />}>
@@ -103,6 +103,6 @@ export default function Projects() {
           <AddProjectForm />
         </Modal>
       )}
-    </div>
+    </Box>
   );
 }

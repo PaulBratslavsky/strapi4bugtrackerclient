@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
+import styled from "styled-components";
 import { Box, Button } from "@strapi/design-system";
-import { TwoColsLayout } from "@strapi/design-system/Layout";
 import { Plus, ArrowLeft } from "@strapi/icons";
 import { FaBug } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,11 +9,16 @@ import { BaseHeaderLayout } from "@strapi/design-system/Layout";
 import { BUGS_BY_ID_QUERY } from "../../apollo/queries";
 import AddBugForm from "../../components/AddBugForm/AddBugForm";
 import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
-
 import { UserContext } from "../../context/UserContext";
 import BugsTable from "../BugsTable/BugsTable";
 import Modal from "../Modal/Modal";
 import ProjectDetails from "../ProjectDetails/ProjectDetails";
+
+const TwoColumnsGridLayout = styled.div`
+  width: calc(100vw - 224px);
+  display: grid;
+  grid-template-columns: 70% 30%;
+`;
 
 export default function Project() {
   const [isVisible, setIsVisible] = useState(false);
@@ -80,63 +85,54 @@ export default function Project() {
   });
 
   return (
-    <div>
-      <Box>
+    <Box>
+      <TwoColumnsGridLayout>
         <Box>
-          <TwoColsLayout
-            startCol={
-              <Box>
-                <BaseHeaderLayout
-                  title={"Project Detail"}
-                  subtitle={`tasks: ${items && items.length}`}
-                  primaryAction={
-                    <Button
-                      onClick={() => setIsVisible(true)}
-                      startIcon={<Plus />}
-                    >
-                      Add Bug
-                    </Button>
-                  }
-                  secondaryAction={
-                    <Button
-                      variant="tertiary"
-                      onClick={() => navigate(-1)}
-                      startIcon={<ArrowLeft />}
-                    >
-                      Back to projects
-                    </Button>
-                  }
-                />
-
-                <Box>
-                  {items && items.length > 0 ? (
-                    <BugsTable
-                      tableData={tableData}
-                      tableHeader={tableHeader}
-                      projectID={projectID}
-                    />
-                  ) : (
-                    <EmptyStateLayout
-                      icon={<FaBug size={75} color={"blue"} />}
-                      content="You don't have any content yet..."
-                      action={
-                        <Button
-                          variant="secondary"
-                          startIcon={<Plus />}
-                          onClick={() => setIsVisible(true)}
-                        >
-                          Add a Bug/Task
-                        </Button>
-                      }
-                    />
-                  )}
-                </Box>
-              </Box>
+          <BaseHeaderLayout
+            title={"Project Detail"}
+            subtitle={`tasks: ${items && items.length}`}
+            primaryAction={
+              <Button onClick={() => setIsVisible(true)} startIcon={<Plus />}>
+                Add Bug
+              </Button>
             }
-            endCol={<ProjectDetails projectID={projectID} />}
+            secondaryAction={
+              <Button
+                variant="tertiary"
+                onClick={() => navigate(-1)}
+                startIcon={<ArrowLeft />}
+              >
+                Back to projects
+              </Button>
+            }
           />
+
+          <Box>
+            {items && items.length > 0 ? (
+              <BugsTable
+                tableData={tableData}
+                tableHeader={tableHeader}
+                projectID={projectID}
+              />
+            ) : (
+              <EmptyStateLayout
+                icon={<FaBug size={75} color={"blue"} />}
+                content="You don't have any content yet..."
+                action={
+                  <Button
+                    variant="secondary"
+                    startIcon={<Plus />}
+                    onClick={() => setIsVisible(true)}
+                  >
+                    Add a Bug/Task
+                  </Button>
+                }
+              />
+            )}
+          </Box>
         </Box>
-      </Box>
+        <ProjectDetails projectID={projectID} />
+      </TwoColumnsGridLayout>
       {isVisible && (
         <Modal
           title="Add Bug"
@@ -148,6 +144,6 @@ export default function Project() {
           <AddBugForm />
         </Modal>
       )}
-    </div>
+    </Box>
   );
 }
