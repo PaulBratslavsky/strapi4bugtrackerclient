@@ -228,6 +228,7 @@ export default function LoginForm() {
             error={formError.password ? "This value is required." : ""}
             value={formData.password}
             onChange={handleChange}
+            type="password"
             label={"Password"}
             placeholder={"Enter your password"}
             name="password"
