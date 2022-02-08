@@ -25,15 +25,13 @@ const AppLayout = ({ children, sideNav }) => {
 export default function Dashboard() {
   return (
     <AppLayout sideNav={<MainSideNav />}>
-      <div>
-        <Box padding={4} background="neutral200" style={{ height: "100vh" }}>
-          <Routes>
-            <Route path="/" element={<Projects />} />
-            <Route path="/project/:projectID" element={<Project />} />
-            <Route path="/bugs" element={<AllBugs />} />
-          </Routes>
-        </Box>
-      </div>
+      <Box>
+        <Routes>
+          <Route path="/" element={<Projects />} />
+          <Route path="/project/:projectID" element={<Project />} />
+          <Route path="/bugs" element={<AllBugs />} />
+        </Routes>
+      </Box>
     </AppLayout>
   );
 }
