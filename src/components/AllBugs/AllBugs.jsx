@@ -7,11 +7,6 @@ import { BaseHeaderLayout } from "@strapi/design-system/Layout";
 import { GET_ALL_ITEMS_BY_OWNER } from "../../apollo/queries";
 import { UserContext } from "../../context/UserContext";
 import BugsTable from "../BugsTable/BugsTable";
-import styled from "styled-components";
-
-const ProjectWrapper = styled.div`
-  width: calc(100vw - 224px);
-`;
 
 export default function Project() {
   const { projectID } = useParams();
@@ -77,7 +72,7 @@ export default function Project() {
   });
 
   return (
-    <ProjectWrapper>
+    <>
       <BaseHeaderLayout
         title={"All Bugs and Tasks"}
         subtitle={`tasks: ${items && items.length}`}
@@ -96,6 +91,6 @@ export default function Project() {
         tableHeader={tableHeader}
         projectID={projectID}
       />
-    </ProjectWrapper>
+    </>
   );
 }

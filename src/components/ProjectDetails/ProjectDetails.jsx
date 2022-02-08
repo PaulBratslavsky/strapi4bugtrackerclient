@@ -9,7 +9,7 @@ import { useQuery } from "@apollo/client";
 const Image = styled.img`
   display: block;
   width: 100%;
-  height: 500px;
+  height: 440px;
   object-fit: cover;
 `;
 
@@ -71,7 +71,7 @@ export default function ProjectDetails({ projectID }) {
   const { projectName, projectDescription, gitUrl, siteUrl } = attributes;
 
   return (
-    <Box>
+    <Box padding={4} background={"neutral200"} style={{height: "100vh"}}>
       <Image src={imageUrl} alt={attributes.projectName} />
       <DetailsBox padding={7}>
         {projectName && <h2>{projectName}</h2>}

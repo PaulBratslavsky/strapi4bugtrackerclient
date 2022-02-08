@@ -6,6 +6,7 @@ import MainSideNav from "../../components/MainSideNav/MainSideNav";
 import Projects from "../../components/Projects/Projects";
 import Project from "../../components/Project/Project";
 import AllBugs from "../../components/AllBugs/AllBugs";
+import { ContentWrapper } from '../../styled/ContentWrapper';
 
 const FlexBox = styled(Box)`
   flex: 1;
@@ -25,13 +26,13 @@ const AppLayout = ({ children, sideNav }) => {
 export default function Dashboard() {
   return (
     <AppLayout sideNav={<MainSideNav />}>
-      <Box>
+      <ContentWrapper>
         <Routes>
           <Route path="/" element={<Projects />} />
           <Route path="/project/:projectID" element={<Project />} />
           <Route path="/bugs" element={<AllBugs />} />
         </Routes>
-      </Box>
+      </ContentWrapper>
     </AppLayout>
   );
 }

@@ -3,13 +3,18 @@ import { Route, Routes } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Auth from "./pages/Auth/Auth";
+import styled from "styled-components";
 import { UserContext } from "./context/UserContext";
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+  width: 100vw;
+`;
 function App() {
-  
   const { user } = useContext(UserContext);
 
   return (
-    <div className="App">
+    <AppWrapper>
       <Routes>
         <Route path="/*" element={<Auth />} />
         <Route
@@ -22,7 +27,7 @@ function App() {
         />
         <Route path="*" element={<h1>Create 404 Page here</h1>} />
       </Routes>
-    </div>
+    </AppWrapper>
   );
 }
 
