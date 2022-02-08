@@ -14,12 +14,12 @@ const AvatarContainer = styled.div`
   }
 `;
 
-export default function AvatarImage({ size = 65, src, alt = "Avatar placement image." }) {
+export default function AvatarImage({ size = 65, src, alt = "Avatar image." }) {
   if (!src) return null;
   return (
     <Box>
       <AvatarContainer size={size}>
-        <img src={src || placementImage} alt={alt} />
+        <img src={src} alt={alt} />
       </AvatarContainer>
     </Box>
   );
