@@ -71,7 +71,7 @@ export default function ProjectDetails({ projectID }) {
   const { projectName, projectDescription, gitUrl, siteUrl } = attributes;
 
   return (
-    <Box padding={4} background={"neutral200"} style={{height: "100vh"}}>
+    <Box padding={4} background={"neutral200"} style={{height: "100vh", overflow: "scroll"}}>
       <Image src={imageUrl} alt={attributes.projectName} />
       <DetailsBox padding={7}>
         {projectName && <h2>{projectName}</h2>}
